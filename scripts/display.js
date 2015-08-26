@@ -61,12 +61,12 @@ var showText = function(text) {
 
 function bindBibleEventHandlers() {
   $(".bible-text").on("click", function(e) {
-    var cell = $(e.target).get(0); // This is the TD you clicked
-    var line = cell.className == 'bible-line' ? cell : cell.parentElement.className == 'bible-line' ? cell.parentElement :
+    var target = $(e.target); // This is the TD you clicked
+    var line = target.hasClass('bible-line') ? target : target.parent().hasClass('bible-line') ? target.parent() :
       null;
     if (line) {
       $(".bible-text-hightlight").removeClass('bible-text-hightlight').addClass('bible-text-hightlight-expired');
-      $(line).addClass('bible-text-hightlight').removeClass('bible-text-hightlight-expired');
+      line.addClass('bible-text-hightlight').removeClass('bible-text-hightlight-expired');
     }
   });
 }
