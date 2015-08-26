@@ -8,8 +8,9 @@ function listBooks() {
     } else {
       isNewLine = false;
     }
-    menu += '<span class="book-menu-item" onclick="book(\'' + simple_books[i] + '\')">' + simple_books[i] +
-      '</span>';
+
+    var classes = i < 39 ? 'book-menu-item' : "book-menu-item book-menu-item-new-bible";
+    menu += '<span class="' + classes + '" onclick="book(\'' + simple_books[i] + '\')">' + simple_books[i] + '</span>';
     if ((i + 1) % 6 === 0) {
       menu += '</li>';
     }
