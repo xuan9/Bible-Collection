@@ -61,12 +61,15 @@ var showText = function(text) {
 
 function bindBibleEventHandlers() {
   $(".bible-text").on("click", function(e) {
-    var cell = $(e.target).get(0); // This is the TD you clicked
-    var line = cell.className == 'bible-line' ? cell : cell.parentElement.className == 'bible-line' ? cell.parentElement :
+    var cell = $(e.target); // This is the TD you clicked
+    var line = cell.hasClass('bible-line') ? cell : cell.parent().hasClass('bible-line') ? cell.parent() :
       null;
-    if (line) {
+    if (line == null) {
+      line = cell.closest('.bible-line');
+    }
+    if (line && line.length > 0) {
       $(".bible-text-hightlight").removeClass('bible-text-hightlight').addClass('bible-text-hightlight-expired');
-      $(line).addClass('bible-text-hightlight').removeClass('bible-text-hightlight-expired');
+      line.addClass('bible-text-hightlight').removeClass('bible-text-hightlight-expired');
     }
   });
 }
@@ -112,10 +115,10 @@ function setDisplayStyle(disp, dontFireSearch) {
   saveSettingToStorage('displayStyle', disp);
   if (displayStyle == DISPLAY_STYLE_SHOW_BOOK_NAME_AND_LINE_PREFIX) {
     document.getElementById("menuDisplayStyle").innerHTML =
-      '<i class="material-icons menu-item-icon">check_box</i>' + "顯示章節號";
+      '<i class="material-icons menu-item-icon">check_box</i>' + "正文顯示章節號";
   } else {
     document.getElementById("menuDisplayStyle").innerHTML =
-      '<i class="material-icons menu-item-icon">check_box_outline_blank</i>' + "顯示章節號";
+      '<i class="material-icons menu-item-icon">check_box_outline_blank</i>' + "正文顯示章節號";
   }
   if (!dontFireSearch) {
     fireSearch();
