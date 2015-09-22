@@ -33,7 +33,7 @@ var displayTogether = function(startLine, endLine, bookName) {
         html += "<div class='bible-line'><span class='line-prefix'>" + lead + "</span>" + l.substring(spaceIndex + 1) +
           "</div>";
       } else {
-        html += "<span class='bible-line'>" + l.substring(spaceIndex + 1) + "</span>";
+        html += "<div class='bible-line inline-block'>" + l.substring(spaceIndex + 1) + "</div>";
       }
     } else {
       html += "<div class='bible-line'>" + l + "</div>";

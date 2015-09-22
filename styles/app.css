@@ -18,6 +18,10 @@ html {
 .bible-text-hightlight-expired{
   color:#4c804c;
 }
+.inline-block {
+  display: inline;
+  vertical-align:top;
+}
 .infoBox{
   text-align:center;
   -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);

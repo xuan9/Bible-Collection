@@ -38,7 +38,7 @@ function saveTagToStorage(name, value) {
   value = TongWenWFU.convertToTraditionalChinese(value);
   localStorage.setItem('TAG-' + name, value);
   var tags = listTags();
-  if (tags.indexOf(name) >= 0) {
+  if (tags.indexOf(name) < 0) {
     tags.unshift(name);
     localStorage.setItem("tagNames", JSON.stringify(tags));
   }
