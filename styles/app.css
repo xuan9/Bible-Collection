@@ -19,7 +19,7 @@ html {
   color:#4c804c;
 }
 .inline-block {
-  display: inline;
+  display: inline-block;
   vertical-align:top;
 }
 .infoBox{

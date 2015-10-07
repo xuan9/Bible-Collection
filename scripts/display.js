@@ -127,7 +127,7 @@ function setDisplayStyle(disp, dontFireSearch) {
 
 function loadSettings() {
   displayStyle = getSettingValue('displayStyle');
-  if (!displayStyle) displayStyle = DISPLAY_STYLE_NO_PREFIX;
+  if (!displayStyle) displayStyle = DISPLAY_STYLE_SHOW_BOOK_NAME_AND_LINE_PREFIX;
   setDisplayStyle(displayStyle, true);
 
   chineseLanguage = getSettingValue('chineseLanguage');
