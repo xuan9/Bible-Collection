@@ -11,7 +11,7 @@ function onload() {
 function mainPage(withDetail) {
   cleanSearch();
   document.getElementsByClassName('mdl-layout__drawer')[0].className = 'mdl-layout__drawer';
-
+  /*
   var tags = listTags();
   var html = "<ul class='" + (!withDetail ? 'two-column-center-list' : '') + "'>";
 
@@ -31,11 +31,15 @@ function mainPage(withDetail) {
     html += '</li>';
   }
   html += "</ul>";
+  */
   var title =
     "<h4 style='text-align:center;font-weight:bold' onclick='mainPage(" + !withDetail + ")'>耶穌說：我是道路、真理、生命 . . . </h4>" +
     "<div style = 'text-align:center;padding-top:5px;' onclick='mainPage(" + !withDetail + ")'>基督徒生活指引</div>";
   document.getElementsByClassName('bible-title')[0].innerHTML = title;
   $('.mdl-card__title').show();
+
+  var html = displayTogether(23235, 23345, '太');
+  html += "<div style='text-align:right;color:gray'> —— 马太福音 5，6，7</div>";
   document.getElementsByClassName('bible-text')[0].innerHTML = html;
   document.getElementById("deleteBtn").style.display = "none";
 };
